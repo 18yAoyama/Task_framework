@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ログアウト</title>
 <link href="css/commons.css" rel="stylesheet">
-<meta http-equiv="refresh" content="3;URL=index.jsp">
+<meta http-equiv="refresh" content="3;URL=index">
 </head>
 <body>
 <div class="center">

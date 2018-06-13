@@ -60,7 +60,9 @@ public class AuthController {
 	@RequestMapping(value="/logout", method=RequestMethod.POST)
 	public String logout (Model model) {
 
-		return "index";
+		session.invalidate();
+
+		return "logout";
 	}
 
 }
