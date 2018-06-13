@@ -11,14 +11,14 @@
 </head>
 <body>
 <c:if test="${empty Admin_name}">
-<c:redirect url="/index.jsp" />
+<c:redirect url="/index" />
 </c:if>
 <p>${Admin_name}さん、こんにちは</p>
 
-<p><a href="select.jsp">検索</a></p>
-<p><a href="insert.jsp">登録</a></p>
-<p><a href="update.jsp">更新</a></p>
-<p><a href="delete.jsp">削除</a></p>
+<p><a href="select">検索</a></p>
+<p><a href="insert">登録</a></p>
+<p><a href="update">更新</a></p>
+<p><a href="delete">削除</a></p>
 <form action="logout" method="post">
   <input type="submit" value="ログアウト">
 </form>

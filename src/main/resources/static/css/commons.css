@@ -42,3 +42,7 @@ input:read-only {
   content: "※";
   color: red;
 }
+
+span.err {
+	color: red;
+}

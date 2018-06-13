@@ -5,18 +5,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class IndexController {
+public class SelectController {
 
-	@RequestMapping("/index")
-	public String index (Model model) {
+	@RequestMapping("/select")
+	public String select (Model model) {
 
-		return "index";
+		return "";
 	}
 
-	@RequestMapping("/menu")
-	public String login (Model model) {
+	@RequestMapping("/list")
+	public String list (Model model) {
 
-		return "menu";
+		return "";
 	}
 
 }

@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ログイン画面</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ログイン画面</title>
+<link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-<form action="menu" method="post">
-  <fieldset>
+<p><span class="err"> ${msg} </span></p>
+<form:form action="login" modelAttribute="form">
     <div>
-      <label>ID</label><input type="text" name="id">
+      <label>ID</label><form:input path="id" />
     </div>
     <div>
-      <label>PASS</label><input type="password" name="pass">
+      <label>PASS</label><form:password path="pass" />
     </div>
-  </fieldset>
-  <input type="submit" value="ログイン">
-</form>
-<div>
-  <a href="index">TOP画面へ</a>
-</div>
+  	<form:button>ログイン</form:button>
+</form:form>
 </body>
 </html>
