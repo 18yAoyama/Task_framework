@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>検索画面</title>
-<link href="css/commons.css" rel="stylesheet">
+<link href="/css/commons.css" rel="stylesheet">
 </head>
 <body>
 <c:if test="${not empty msg}">
@@ -16,22 +17,22 @@
 <p>検索したいデータ情報を入力してください<br>
 ※全て空白の場合は全検索を行います</p>
 
-<form action="select">
+<form:form action="list" modelAttribute="form">
   <fieldset>
     <div>
-      <label>ID</label><input type="text" name="id" value="${fn:escapeXml(id)}">
+      <label>ID</label><form:input path="id" value="${fn:escapeXml(id)}" />
     </div>
     <div>
-      <label>名前</label><input type="text" name="name">
+      <label>名前</label><form:input path="name" />
     </div>
     <div>
-      <label>TEL</label><input type="text" name="tel">
+      <label>TEL</label><form:input path="tel" />
     </div>
   </fieldset>
-  <input type="submit" value="検索">
-</form>
+  <form:button>検索</form:button>
+</form:form>
 <div>
-  <a href="menu.jsp">メニューに戻る</a>
+  <a href="menu">メニューに行く</a>
 </div>
 </body>
 </html>
