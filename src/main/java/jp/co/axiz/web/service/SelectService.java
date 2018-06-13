@@ -8,4 +8,6 @@ public interface SelectService {
 
 	public List<User_info> select(Integer id, String name, String tel);
 
+	public int idInsert();
+
 }

@@ -87,4 +87,16 @@ public class User_indoDaoImpl implements User_infoDao {
 		return null;
 	}
 
+	//登録
+	@Override
+	public void insert(String name, String tel, String pass) {
+		jT.update("INSERT INTO user_info (user_name, telephone, password) VALUES (?, ?, ?);", name , tel, pass);
+	}
+
+	@Override
+	public Integer idInsert() {
+		// TODO 自動生成されたメソッド・スタブ
+		return jT.queryForObject("SELECT MAX(user_id) FROM user_info", Integer.class);
+	}
+
 }

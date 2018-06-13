@@ -22,4 +22,10 @@ public class SelectServiceImpl implements SelectService {
 		return userDao.select(id, name, tel);
 	}
 
+	@Override
+	public int idInsert() {
+
+		return userDao.idInsert();
+	}
+
 }

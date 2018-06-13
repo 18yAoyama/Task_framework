@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.axiz.web.entity.Select;
 import jp.co.axiz.web.entity.User_info;
@@ -22,6 +23,14 @@ public class SelectController {
 
 	@RequestMapping("/select")
 	public String select (@ModelAttribute("form") Select select, Model model) {
+		return "select";
+	}
+
+	@RequestMapping(value="/insertToSelect", method=RequestMethod.POST)
+	public String selectS (@ModelAttribute("form") Select select, Model model) {
+		//insertしたidを表示
+		model.addAttribute("id", selectService.idInsert());
+
 		return "select";
 	}
 
