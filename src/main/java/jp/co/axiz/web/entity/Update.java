@@ -12,6 +12,8 @@ public class Update {
 	public String tel;
 	public String pass;
 
+	public String rePass;
+
 
 	public String getId() {
 		return id;
@@ -36,6 +38,12 @@ public class Update {
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	public String getRePass() {
+		return rePass;
+	}
+	public void setRePass(String rePass) {
+		this.rePass = rePass;
 	}
 
 }

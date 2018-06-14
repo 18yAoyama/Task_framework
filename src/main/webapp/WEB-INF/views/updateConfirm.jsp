@@ -29,7 +29,7 @@
 </c:if>
 <p>これでよろしいですか？</p>
 
-<form:form action="updateConfirm" modelAttribute="form">
+<form:form action="update" modelAttribute="form">
   <fieldset>
     <div>
       <label>ID</label><input type="text" name="id" value="${User_info.user_id}" readonly>
@@ -60,7 +60,7 @@
       <label>TEL</label><form:input path="tel" value="${fn:escapeXml(update.tel)}" readonly="true" />
     </div>
     <div>
-      <label>PASS(再入力)</label><form:password path="pass" />
+      <label>PASS(再入力)</label><form:password path="pass" value="${fn:escapeXml(update.pass)}" />
     </div>
   </fieldset>
 

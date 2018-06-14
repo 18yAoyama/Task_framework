@@ -17,7 +17,7 @@
 <p>１箇所以上の項目を変更してください<br>
 ※IDは変更できません</p>
 
-<form:form action="updateInput" modelAttribute="form">
+<form:form action="updateConfirm" modelAttribute="form">
   <fieldset>
     <div>
       <label>ID</label><form:input path="id" value="${User_info.user_id}" readonly="true" />

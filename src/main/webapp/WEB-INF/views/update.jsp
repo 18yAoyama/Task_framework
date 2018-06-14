@@ -17,7 +17,7 @@
 <p>更新を行うデータのIDを入力してください<br>
 <span class="required"></span>は必須です</p>
 
-<form:form action="update" modelAttribute="form">
+<form:form action="updateInput" modelAttribute="form">
   <fieldset>
     <div>
       <label class="required">ID</label><form:input path="id" />

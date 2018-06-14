@@ -72,10 +72,17 @@ public class UpdateController {
 	@RequestMapping(value="/updateConfirm", method=RequestMethod.POST)
 	public String updateInputP (@ModelAttribute("form") Update update, Model model) {
 
+		User_info before = (User_info)session.getAttribute("User_info");
+
 		//情報が変更されているか確認
-		if(!updateService.isChange(update.getName(), update.getTel(), update.getPass(), (User_info)session.getAttribute("User_info"))) {
+		if(!updateService.isChange(update.getName(), update.getTel(), update.getPass(), before)) {
 			model.addAttribute("msg", "１項目以上変更してください");
 			return "updateInput";
+		}
+
+		//passに変更がない場合は初期値セット
+		if(update.getPass().equals(before.getPassword())) {
+			update.setRePass(update.getPass());
 		}
 
 		//変更情報をaddAttribute
