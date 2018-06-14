@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,28 +17,28 @@
 <p>１箇所以上の項目を変更してください<br>
 ※IDは変更できません</p>
 
-<form action="updateInput" method="post">
+<form:form action="updateInput" modelAttribute="form">
   <fieldset>
     <div>
-      <label>ID</label><input type="text" name="id" value="${userInfo.user_id}" readonly>
+      <label>ID</label><form:input path="id" value="${User_info.user_id}" readonly="true" />
     </div>
     <div>
-      <label>名前</label><input type="text" name="newName" value="${userInfo.user_name}">
+      <label>名前</label><form:input path="name" value="${User_info.user_name}" />
     </div>
     <div>
-      <label>TEL</label><input type="text" name="newTel" value="${userInfo.telephone}">
+      <label>TEL</label><form:input path="tel" value="${User_info.telephone}" />
     </div>
     <div>
-      <label>PASS</label><input type="password" name="newPass" value="${userInfo.password}">
+      <label>PASS</label><form:password path="pass" value="${User_info.password}" />
     </div>
   </fieldset>
   <div>
-    <input type="submit" name="button" value="確認">
-    <input type="submit" name="button" value="戻る" onclick="location.href='update.jsp'; return false;">
+    <form:button>確認</form:button>
+    <input type="submit" name="button" value="戻る" onclick="location.href='update'; return false;">
   </div>
-</form>
+</form:form>
 <div>
-  <a href="menu.jsp">メニューに戻る</a>
+  <a href="menu">メニューに戻る</a>
 </div>
 </body>
 </html>

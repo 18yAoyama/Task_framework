@@ -14,4 +14,6 @@ public interface User_infoDao {
 
 	public Integer idInsert();
 
+	public void update(String id, String name, String tel, String pass);
+
 }

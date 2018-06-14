@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,23 +29,23 @@
 </c:if>
 <p>これでよろしいですか？</p>
 
-<form action="updateConfirm" method="post">
+<form:form action="updateConfirm" modelAttribute="form">
   <fieldset>
     <div>
-      <label>ID</label><input type="text" name="id" value="${userInfo.user_id}" readonly>
+      <label>ID</label><input type="text" name="id" value="${User_info.user_id}" readonly>
     </div>
   </fieldset>
 
   <fieldset class="col">
     <legend>変更前</legend>
     <div>
-      <label>名前</label><input type="text" value="${userInfo.user_name}" disabled>
+      <label>名前</label><input type="text" value="${User_info.user_name}" disabled>
     </div>
     <div>
-      <label>TEL</label><input type="text" value="${userInfo.telephone}" disabled>
+      <label>TEL</label><input type="text" value="${User_info.telephone}" disabled>
     </div>
     <div>
-      <label>PASS</label><input type="password" value="${userInfo.password}" disabled>
+      <label>PASS</label><input type="password" value="${User_info.password}" disabled>
     </div>
   </fieldset>
 
@@ -53,23 +54,23 @@
   <fieldset class="col label-110">
     <legend>変更後</legend>
     <div>
-      <label>名前</label><input type="text" name="newName" value="${fn:escapeXml(newInfo.user_name)}" readonly>
+      <label>名前</label><form:input path="name" value="${fn:escapeXml(update.name)}" readonly="true" />
     </div>
     <div>
-      <label>TEL</label><input type="text" name="newTel" value="${fn:escapeXml(newInfo.telephone)}" readonly>
+      <label>TEL</label><form:input path="tel" value="${fn:escapeXml(update.tel)}" readonly="true" />
     </div>
     <div>
-      <label>PASS(再入力)</label><input type="password" name="rePass">
+      <label>PASS(再入力)</label><form:password path="pass" />
     </div>
   </fieldset>
 
   <div class="col-clear">
-    <input type="submit" name="button" value="更新">
-    <input type="submit" name="button" value="戻る" onclick="location.href='updateInput.jsp'; return false;">
+    <form:button>更新</form:button>
+    <input type="submit" name="button" value="戻る" onclick="location.href='updateInput'; return false;">
   </div>
-</form>
+</form:form>
 <div>
-  <a href="menu.jsp">メニューに戻る</a>
+  <a href="menu">メニューに戻る</a>
 </div>
 </body>
 </html>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.axiz.web.dao.User_infoDao;
 import jp.co.axiz.web.entity.User_info;
@@ -17,8 +18,9 @@ public class User_indoDaoImpl implements User_infoDao {
     private JdbcTemplate jT;
 
 	@Override
+	@Transactional
 	public List<User_info> select(Integer id, String name, String tel) {
-		String SQL_SELECT_INFO = "SELECT user_id, user_name, telephone FROM user_info";
+		String SQL_SELECT_INFO = "SELECT user_id, user_name, telephone, password FROM user_info";
 
 		boolean exId =  id != null;
 		boolean exName = !(name.equals(""));
@@ -89,14 +91,23 @@ public class User_indoDaoImpl implements User_infoDao {
 
 	//登録
 	@Override
+	@Transactional
 	public void insert(String name, String tel, String pass) {
-		jT.update("INSERT INTO user_info (user_name, telephone, password) VALUES (?, ?, ?);", name , tel, pass);
+		jT.update("INSERT INTO user_info (user_name, telephone, password) VALUES (?, ?, ?)", name , tel, pass);
+	}
+
+	//登録したidを取得
+	@Override
+	@Transactional
+	public Integer idInsert() {
+		return jT.queryForObject("SELECT MAX(user_id) FROM user_info", Integer.class);
 	}
 
 	@Override
-	public Integer idInsert() {
-		// TODO 自動生成されたメソッド・スタブ
-		return jT.queryForObject("SELECT MAX(user_id) FROM user_info", Integer.class);
+	@Transactional
+	public void update(String id, String name, String tel, String pass) {
+		jT.update("UPDATE user_info SET user_name = ?, telephone = ?, password = ? WHERE user_id = ?", name , tel, pass, Integer.parseInt(id));
+
 	}
 
 }
