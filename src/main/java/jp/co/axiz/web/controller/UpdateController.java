@@ -36,7 +36,7 @@ public class UpdateController {
 	}
 
 
-	@RequestMapping(value="/update", method=RequestMethod.POST)
+	@RequestMapping(value="/updateInput", method=RequestMethod.POST)
 	public String updateP (@Validated @ModelAttribute("form") Update id,
 			BindingResult bindingResult, Model model) {
 
@@ -69,7 +69,7 @@ public class UpdateController {
 	}
 
 
-	@RequestMapping(value="/updateInput", method=RequestMethod.POST)
+	@RequestMapping(value="/updateConfirm", method=RequestMethod.POST)
 	public String updateInputP (@ModelAttribute("form") Update update, Model model) {
 
 		//情報が変更されているか確認
@@ -91,7 +91,7 @@ public class UpdateController {
 		return "updateInput";
 	}
 
-	@RequestMapping(value="/updateConfirm", method=RequestMethod.POST)
+	@RequestMapping(value="/update", method=RequestMethod.POST)
 	public String updateConfirmP (@ModelAttribute("form") Update update, String rePass, Model model) {
 
 		Update updateInfo = (Update)session.getAttribute("update");
