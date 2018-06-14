@@ -60,7 +60,7 @@
       <label>TEL</label><form:input path="tel" value="${fn:escapeXml(update.tel)}" readonly="true" />
     </div>
     <div>
-      <label>PASS(再入力)</label><form:password path="pass" value="${fn:escapeXml(update.pass)}" />
+      <label>PASS(再入力)</label><form:password path="pass" value="${fn:escapeXml(update.rePass)}" />
     </div>
   </fieldset>
 

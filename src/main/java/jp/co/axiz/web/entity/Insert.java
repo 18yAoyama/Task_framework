@@ -4,6 +4,8 @@ import javax.validation.constraints.NotBlank;
 
 public class Insert {
 
+	private String id;
+
 	@NotBlank
 	private String name;
 
@@ -30,6 +32,12 @@ public class Insert {
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

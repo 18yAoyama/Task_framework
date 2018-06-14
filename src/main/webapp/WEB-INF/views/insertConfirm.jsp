@@ -30,9 +30,9 @@
   </fieldset>
   <div>
     <form:button>登録</form:button>
+    <input type="submit" name="button" value="戻る" onclick="location.href='insert'; return false;">
   </div>
 </form:form>
-	<input type="submit" name="button" value="戻る" onclick="location.href='insert'; return false;">
 <div>
   <a href="menu">メニューに戻る</a>
 </div>

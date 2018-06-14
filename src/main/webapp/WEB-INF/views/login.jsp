@@ -13,12 +13,14 @@
 <body>
 <p><span class="err"> ${msg} </span></p>
 <form:form action="login" modelAttribute="form">
+    <fieldset>
     <div>
       <label>ID</label><form:input path="id" />
     </div>
     <div>
       <label>PASS</label><form:password path="pass" />
     </div>
+    </fieldset>
   	<form:button>ログイン</form:button>
 </form:form>
 </body>

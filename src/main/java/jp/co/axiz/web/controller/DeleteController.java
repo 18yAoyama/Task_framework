@@ -15,12 +15,16 @@ import jp.co.axiz.web.entity.Delete;
 import jp.co.axiz.web.entity.User_info;
 import jp.co.axiz.web.service.DeleteService;
 import jp.co.axiz.web.service.SelectService;
+import jp.co.axiz.web.service.UpdateService;
 
 @Controller
 public class DeleteController {
 
 	@Autowired
 	SelectService selectService;
+
+	@Autowired
+	UpdateService updateService;
 
 	@Autowired
 	DeleteService deleteService;
@@ -38,6 +42,13 @@ public class DeleteController {
 
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("msg", "必須項目を入力してください");
+			return "delete";
+		}
+
+		//入力idの数字確認
+		if(!updateService.isNum(delete.getId())) {
+			//数字でなければupdate.jspに戻す
+			model.addAttribute("msg", "入力されたデータは存在しません");
 			return "delete";
 		}
 
