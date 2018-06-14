@@ -13,7 +13,7 @@
 <body>
 <p>実行者：${Admin_name}</p>
 <p>正常に削除されました</p>
-<form:form action="select" modelAttribute="form">
+<form:form action="select" modelAttribute="form" method="GET">
   <form:button>検索</form:button>
 </form:form>
 <div>
