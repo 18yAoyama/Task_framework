@@ -16,4 +16,6 @@ public interface User_infoDao {
 
 	public void update(String id, String name, String tel, String pass);
 
+	public void delete(Integer id);
+
 }

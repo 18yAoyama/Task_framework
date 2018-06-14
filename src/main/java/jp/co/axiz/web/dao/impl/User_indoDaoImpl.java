@@ -110,4 +110,10 @@ public class User_indoDaoImpl implements User_infoDao {
 
 	}
 
+	@Override
+	@Transactional
+	public void delete(Integer id) {
+		jT.update("DELETE FROM user_info WHERE user_id = ?", id);
+	}
+
 }
