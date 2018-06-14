@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.axiz.web.entity.Insert;
 import jp.co.axiz.web.service.InsertService;
+import jp.co.axiz.web.service.SelectService;
 
 @Controller
 public class InsertController {
@@ -23,13 +24,16 @@ public class InsertController {
 	@Autowired
 	InsertService insertService;
 
+	@Autowired
+	SelectService selectService;
+
 	@RequestMapping("/insert")
 	public String insert (@ModelAttribute("form") Insert insert, Model model) {
 		return "insert";
 	}
 
 
-	@RequestMapping(value="/insert", method=RequestMethod.POST)
+	@RequestMapping(value="/insertConfirm", method=RequestMethod.POST)
 	public String insertP (@Validated @ModelAttribute("form") Insert insert,
 			BindingResult bindingResult, Model model) {
 
@@ -42,7 +46,7 @@ public class InsertController {
 	}
 
 
-	@RequestMapping(value="/insertConfirm", method=RequestMethod.POST)
+	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insertConfirmP (@ModelAttribute("form") Insert re, Model model) {
 
 		Insert insert = (Insert) session.getAttribute("insert");
@@ -56,6 +60,9 @@ public class InsertController {
 
 		//DB処理
 		insertService.insert(insert.getName(), insert.getTel(), insert.getPass());
+
+		//insertしたidを格納
+		model.addAttribute("id", selectService.idInsert());
 
 		return "insertResult";
 	}

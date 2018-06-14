@@ -14,6 +14,7 @@
 <p>実行者：${Admin_name}</p>
 <p>正常に登録されました</p>
 <form:form action="insertToSelect" modelAttribute="form">
+  <form:hidden path="id" value=" ${id} "/>
   <form:button>検索</form:button>
 </form:form>
 <div>

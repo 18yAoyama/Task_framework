@@ -11,8 +11,9 @@
 <body>
 <p>実行者：${Admin_name}</p>
 <p>正常に更新されました</p>
-<form:form action="updateToSelect" modelAttribute="form">
-  <input type="submit" value="検索">
+<form:form action="select" method="GET" modelAttribute="form">
+  <form:hidden path="id" value=" ${id} "/>
+  <form:button>検索</form:button>
 </form:form>
 <div>
   <a href="menu">メニューに戻る</a>

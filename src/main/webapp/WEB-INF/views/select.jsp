@@ -20,7 +20,7 @@
 <form:form action="list" modelAttribute="form">
   <fieldset>
     <div>
-      <label>ID</label><form:input path="id" value="${fn:escapeXml(id)}" />
+      <label>ID</label><form:input path="id" value="${id}" />
     </div>
     <div>
       <label>名前</label><form:input path="name" />

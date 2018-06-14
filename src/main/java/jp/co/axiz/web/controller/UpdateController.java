@@ -105,6 +105,9 @@ public class UpdateController {
 		//update処理
 		updateService.update(updateInfo.getId(), updateInfo.getName(), updateInfo.getTel(), updateInfo.getPass());
 
+		//updateしたidを格納
+		model.addAttribute("id", updateInfo.getId());
+
 		return "updateResult";
 	}
 

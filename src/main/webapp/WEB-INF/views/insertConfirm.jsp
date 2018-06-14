@@ -16,7 +16,7 @@
 </c:if>
 <p>これでよろしいですか？</p>
 
-<form:form action="insertConfirm" modelAttribute="form">
+<form:form action="insert" modelAttribute="form">
   <fieldset class="label-110">
     <div>
       <label>名前</label><form:input path="name" value="${fn:escapeXml(insert.name)}" readonly="true" />
